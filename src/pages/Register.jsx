@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Signup() {
+export default function Register() {
     return (
         <div id="registration" className="min-h-screen flex items-center justify-center">
             <div className="border bg-white rounded-md shadow-md flex items-center justify-center flex-col space-y-8 px-10 py-10">
@@ -44,20 +44,12 @@ export default function Signup() {
                 </div>
 
                 <div className="w-full">
-                    <button className="bg-pink-600 hover:bg-pink-500 rounded-md p-2 text-white font-medium w-full">Register</button>
-                </div>
-
-                <span className="text-gray-500 text-sm">Or Sign up using</span>
-
-                <div className="flex text-2xl items-center space-x-3">
-                    <i className="text-blue-900 fa-brands fa-facebook"></i>
-                    <i className="text-blue-400 fa-brands fa-twitter"></i>
-                    <i className="text-red-600 fa-brands fa-google"></i>
+                    <button className="my-5 bg-pink-600 hover:bg-pink-500 rounded-md p-2 text-white font-medium w-full">Register</button>
                 </div>
 
                 <p className="text-sm">
                     <span className="text-gray-500">Already have an account?</span>
-                    <Link className="pl-4 underline text-blue-400 hover:text-blue-600" to="/">Sign in</Link>
+                    <Link className="pl-4 underline text-blue-400 hover:text-blue-600" to="/">Login</Link>
                 </p>
 
             </div>
