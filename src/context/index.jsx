@@ -3,7 +3,7 @@ import { createContext, useContext } from "react"
 const SERVER_ADDRESS = (process.env.NODE_ENV == "development") ? (
         "http://127.0.0.1:5000" 
     ) : ( 
-        "https://authentication-frontend-demo.netlify.app"
+        "https://onqcm5.deta.dev/"
     )
 
 const Context = createContext()
