@@ -4,19 +4,35 @@ import Register from "./pages/Register"
 import MainContext from "./context"
 import Profile from "./pages/Profile"
 
+const RoutesWithToken = () => {
+    return (
+        <Routes>
+            <Route exact path="/" element={<Profile />} />
+            <Route exact path="*" element={<Navigate to={"/"} />} />
+        </Routes>
+    )
+}
+
+const RoutesWithoutToken = () => {
+    return (
+        <Routes>
+            <Route exact path="/" element={<Login />} />
+            <Route exact path="/register" element={<Register />} />
+            <Route exact path="*" element={<Navigate to={"/"} />} />
+        </Routes>
+    )
+}
+
 export default function App() {
 
     const authtoken = localStorage.getItem("authtoken")
-    if (!authtoken) redirect("/")
 
     return (
         <MainContext>
             <BrowserRouter>
-                <Routes>
-                    <Route exact path="/" element={ (authtoken)? <Profile/>: <Login/> } />
-                    <Route exact path="/register" element={ <Register/> } />
-                    <Route exact path="*" element={ <Navigate to={"/"} /> } />
-                </Routes>
+
+                { authtoken ? <RoutesWithToken/> : <RoutesWithoutToken/> }
+
             </BrowserRouter>
         </MainContext>
     )
