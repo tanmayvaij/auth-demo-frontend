@@ -3,7 +3,7 @@ import { createContext, useContext } from "react"
 const SERVER_ADDRESS = (process.env.NODE_ENV == "development") ? (
         "http://127.0.0.1:5000" 
     ) : ( 
-        "https://auth-demo-backend.vercel.app"
+        "https://authdemo-ws8j.onrender.com"
     )
 
 const Context = createContext()
