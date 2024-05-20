@@ -4,6 +4,8 @@
 
 ### Project link:- https://authentication-frontend-demo.netlify.app/
 
+### Note: Replace server url in the src/context/index
+
 <br/>
 
 <img src="./public/ss1.png" />
