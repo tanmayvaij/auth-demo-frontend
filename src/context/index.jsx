@@ -1,22 +1,19 @@
-import { createContext, useContext } from "react"
+import { createContext, useContext } from "react";
 
-const SERVER_ADDRESS = (process.env.NODE_ENV == "development") ? (
-        "http://127.0.0.1:5000" 
-    ) : ( 
-        "https://authdemo-ws8j.onrender.com"
-    )
+const SERVER_ADDRESS = process.env.BACKEND_EXPOSE_PORT
 
-const Context = createContext()
+const Context = createContext();
 
 export default function MainContext({ children }) {
+  return (
+    <Context.Provider
+      value={{
+        SERVER_ADDRESS,
+      }}
+    >
+      {children}
+    </Context.Provider>
+  );
+}
 
-    return ( 
-        <Context.Provider value={{
-            SERVER_ADDRESS
-        }}>
-            { children }
-        </Context.Provider>
-    )
-} 
-
-export const GlobalStates = () => useContext(Context)
+export const GlobalStates = () => useContext(Context);
