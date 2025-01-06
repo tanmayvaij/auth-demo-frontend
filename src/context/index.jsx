@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 
-const SERVER_ADDRESS = process.env.BACKEND_EXPOSE_PORT
+const SERVER_ADDRESS = process.env.REACT_APP_BACKEND_EXPOSE_PORT
 
 const Context = createContext();
 
