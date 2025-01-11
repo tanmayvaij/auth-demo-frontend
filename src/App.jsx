@@ -1,10 +1,4 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  redirect,
-} from "react-router-dom";
+import { Routes, Route, Navigate, HashRouter } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import MainContext from "./context";
@@ -34,9 +28,9 @@ export default function App() {
 
   return (
     <MainContext>
-      <BrowserRouter>
+      <HashRouter>
         {authtoken ? <RoutesWithToken /> : <RoutesWithoutToken />}
-      </BrowserRouter>
+      </HashRouter>
     </MainContext>
   );
 }
