@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 
-const SERVER_ADDRESS = process.env.REACT_APP_BACKEND_URL
+const SERVER_ADDRESS = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"
 
 const Context = createContext();
 
