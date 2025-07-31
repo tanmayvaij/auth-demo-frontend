@@ -1,7 +1,32 @@
-FROM node:23-alpine3.21
+# Build stage
+FROM node:18-alpine AS builder
+
+# Set working directory
 WORKDIR /app
-COPY ./package.json ./yarn.lock ./
-RUN yarn
+
+# Copy package files
+COPY package.json yarn.lock ./
+
+# Install dependencies
+RUN yarn install --frozen-lockfile --production=false
+
+# Copy source code
 COPY . .
+
+# Build the application
 RUN yarn build
-CMD yarn start
+
+# Production stage
+FROM nginx:alpine
+
+# Copy built application from builder stage
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# Copy custom nginx configuration (optional)
+# COPY nginx.conf /etc/nginx/nginx.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
